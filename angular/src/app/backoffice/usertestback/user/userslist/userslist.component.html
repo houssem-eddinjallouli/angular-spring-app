@@ -1,0 +1,91 @@
+    <div class="row">
+    <h1 class="mt-4">Users</h1>
+
+    <div class="col-xl-8 col-md-12">
+
+        <mat-toolbar color="primary">
+            recherche par email: <input [(ngModel)]="emailsearch">
+            <span class="example-spacer"></span>
+            <button mat-fab extended color="accent">
+                <mat-icon>add_circle</mat-icon>
+                <a routerLink="/back/ut/user/add">Create a new account</a>
+            </button>
+        </mat-toolbar>
+        <table class="datatable-table" *ngIf="users?.length != 0">
+            <thead>
+                <tr>
+                    <th scope="col">image</th>
+                    <th scope="col">email</th>
+                    <th scope="col">role</th>
+                    <th scope="col">accout status</th>
+                    <th scope="col">operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let u of users.reverse(); let i=index">
+                    <tr *ngIf="u.email.includes(emailsearch) && isempty ">
+                        <td><img src="{{u.image}}" width="40" alt=""> </td>
+                        <td [routerLink]="['details', u.id]">{{u.email}}</td>
+                        <td>{{u.role}}</td>
+                        <td *ngIf="u.enabled==true">active</td>
+                        <td *ngIf="u.enabled==false">blocked</td>
+                        <td> <button type="button" class="btn btn-primary rounded-0" (click)="cr(i)">Modifier
+                                Role</button>
+                            <div [hidden]="displayrole[i]">
+                                <select class="kleon-select-simple" [(ngModel)]="newrole[i]">
+                                    <option value="" *ngFor="let r of roleList" [ngValue]="r">{{r}}</option>
+                                </select>
+                                <button class="btn btn-white rounded-0 text-purple btn-shadow"
+                                    (click)="modifierrole(u.id,newrole[i],i)">appliquer</button>
+                            </div>
+                            <button type="button" class="btn btn-danger rounded-0" (click)="bd(u.id)">
+                                <div *ngIf="u.enabled==true">Block</div>
+                                <div *ngIf="u.enabled==false">Unblock</div>
+                            </button>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+        <!-- <div *ngIf="users?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+            <div class="alert alert-info" role="alert">
+                <h4 class="alert-heading">NO USERSS!</h4>
+                <p>No Users were found.</p>
+            </div>
+        </div> -->
+    </div>
+    <div class="col-xl-4 col-md-12" style="position: fixed; left: 70%;  width: 30%;">
+
+
+
+<br><br><br><br><br>
+        <div class="col-xxl-6 col-md-6">
+            <div class="card border-0 bg-primary text-white card-total-employees p-5">
+                <div class="card-body p-0 d-flex gap-3 flex-wrap flex-md-nowrap">
+                    <div class="card-img w-auto">
+                        <span class="d-inline-block bg-secondary fs-24 text-white mb-4"><i
+                                class="bi bi-people"></i></span>
+                        <h3 class="mb-2 text-nowrap text-white">Total Accounts {{users.length}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-6 col-md-6">
+            <div class="card border-0 bg-primary text-white card-total-employees p-5">
+                <div class="card-body p-0 d-flex gap-3 flex-wrap flex-md-nowrap">
+                    <table class="datatable-table">
+                        <th>Number of accounts per position</th>
+                        <ng-container *ngFor="let role of ['ADMIN', 'PRODUCT_OWNER', 'DEVELOPER']">
+                            <tr style="background-color: rgb(160, 99, 213);">
+                                <td>{{ role }}</td>
+                                <td>{{ countUsersByRole(role) }}</td>
+                            </tr>
+                        </ng-container>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<h1 class="mt-4">Create a new account</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Users/add</li>
+</ol>
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Account Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>      
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="First name" formControlName="first_name">
+            <mat-error *ngIf="addressForm.controls['first_name'].hasError('required')">
+              First name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Last name" formControlName="last_name">
+            <mat-error *ngIf="addressForm.controls['last_name'].hasError('required')">
+              Last name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Email address" formControlName="email">
+            <mat-error *ngIf="addressForm.controls['email'].hasError('required')">
+              Address is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row" *ngIf="!hasUnitNumber">
+        <div class="col">
+          <button mat-button type="button" (click)="hasUnitNumber = !hasUnitNumber">
+            + Add a phone number
+          </button>
+        </div>
+      </div>
+      <div class="row" *ngIf="hasUnitNumber">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Phone Number" formControlName="phone_number">
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput #password maxlength="15" placeholder="Password" type="text" formControlName="password">
+            <mat-hint align="end">{{password.value.length}} / 5</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-radio-group formControlName="role">
+            <mat-radio-button value="DEVELOPER">Developper</mat-radio-button>
+            <mat-radio-button value="PRODUCT_OWNER">Product owner</mat-radio-button>
+            <mat-radio-button value="SCRUM_MASTER">Scrum master</mat-radio-button>
+            <mat-radio-button value="ADMIN">Admin</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" >Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

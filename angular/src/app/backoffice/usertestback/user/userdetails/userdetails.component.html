@@ -1,0 +1,90 @@
+<!-- <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="delete(user.id)">
+    <mat-icon>delete</mat-icon>
+  </button> -->
+  <button type="button" class="btn btn-info" routerLink="../../">Back</button>
+
+<div class="profile-header">
+    <img class="profile-picture" src="{{ user.image }}" alt="Profile Picture">
+    <h1 class="profile-name">{{ user.first_name }} {{ user.last_name }}</h1>
+    <p class="profile-handle">{{ user.email }}</p>
+
+</div>
+
+<div class="tweet-container">
+    <div class="tweet">
+        <table class="table" style="background-color: rgb(219, 100, 255);">
+            <tr>
+                <td>Role:</td>
+                <td>{{ user.role }}</td>
+            </tr>
+            <tr>
+                <td>Birth Date:</td>
+                <td>{{ user.birth_date }}</td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>{{ user.gender }}</td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td>{{ user.address }}</td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td>{{ user.phone_number }}</td>
+            </tr>
+            <tr>
+                <td>Enabled:</td>
+                <td>{{ user.enabled }}</td>
+            </tr>
+            <tr>
+                <td>Non-Locked:</td>
+                <td>{{ user.non_locked }}</td>
+            </tr>
+            <!-- <tr><td>Using MFA:</td><td>{{ user.using_mfa }}</td></tr> -->
+            <tr>
+                <td>Created Date:</td>
+                <td>{{ user.created_date }}</td>
+            </tr>
+        </table>
+
+    </div>
+    <!-- More tweets can be added here -->
+<div class="col-3" >
+    <div *ngIf="user.barrcode!=null">
+        <h3 class="mat h1">Id Card</h3>
+        <mat-card class="example-card" style="background-color: rgb(219, 219, 219);">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <img mat-card-md-image src="{{user.image}}" alt="Image of a Shiba Inu">
+                    <mat-card-title>ID Card</mat-card-title>
+                    <mat-card-subtitle>First Name {{user.first_name}}</mat-card-subtitle>
+                    <mat-card-subtitle>Last Name {{user.last_name}}</mat-card-subtitle>
+                    <qrcode [qrdata]="user.barrcode" [width]="10" [errorCorrectionLevel]="'M'"></qrcode>
+
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-card-subtitle>Position :{{user.role}}</mat-card-subtitle>
+                <mat-card-subtitle>Birth Date :{{user.birth_date}}</mat-card-subtitle>
+                <mat-card-subtitle>Member Since :{{user.created_date}}</mat-card-subtitle>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+</div>
+<div *ngIf="user.barrcode==null">
+    <h4>Generate Id Card</h4>
+    <mat-form-field class="example-form-field">
+        <mat-label>Clearable input</mat-label>
+        <input matInput type="text" [(ngModel)]="value" (keyup.enter)="generatecard(user.id,value)">
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field><span class="example-spacer"></span>
+    <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
+        (click)="generatecard(user.id,value)">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>

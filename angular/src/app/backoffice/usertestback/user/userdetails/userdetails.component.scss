@@ -1,0 +1,99 @@
+.profile-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .profile-header {
+    text-align: center;
+  }
+  
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  .profile-name {
+    margin-top: 10px;
+    font-size: 24px;
+  }
+  
+  .profile-handle {
+    color: gray;
+  }
+  
+  .profile-bio {
+    margin-top: 7;
+  }
+  
+  .profile-links {
+    margin-top: 7;
+  }
+  
+  .profile-links a {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  .profile-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .profile-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+  }
+  
+  .stat {
+    text-align: center;
+  }
+  
+  .stat-count {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .tweet-container {
+    margin-top: 10px;
+  }
+  
+  .tweet {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .tweet-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .tweet-profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .tweet-author-info {
+    margin-left: 10px;
+  }
+  
+  .tweet-author-name {
+    margin: 0;
+  }
+  
+  .tweet-author-handle {
+    color: gray;
+    margin: 0;
+  }
+  .example-form-field {
+    width: 200px;
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  

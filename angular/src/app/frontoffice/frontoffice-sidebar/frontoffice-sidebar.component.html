@@ -1,0 +1,57 @@
+<style>
+    .image-minimisée {
+        width: 800px;
+        /* Largeur souhaitée */
+        height: auto;
+        /* Hauteur automatique pour conserver les proportions */
+    }
+</style>
+<div class="kleon-vertical-nav">
+
+    <!-- Logo  -->
+    <div class="logo d-flex align-items-center justify-content-between">
+        <a routerLink="/front" class="image-minimisée">
+            <img src="../../../assets/assets_FrontOffice/assets/img/logo_image.png" alt="logo">
+        </a>
+        <button type="button" class="kleon-vertical-nav-toggle"><i class="bi bi-list"></i></button>
+    </div>
+
+
+    <div class="kleon-navmenu">
+        <h6 class="hidden-header text-gray text-uppercase ls-1 ms-4 mb-4">Main Menu</h6>
+        <ul class="main-menu">
+
+            <li class="menu-section-title text-gray ff-heading fs-16 fw-bold text-uppercase mt-4 mb-2"><span>Home</span>
+            </li>
+            <li class="menu-item menu-item-has-children"><a href="#"> <span class="nav-icon flex-shrink-0"><i
+                            class="bi bi-speedometer fs-18"></i></span> <span class="nav-text">Dashboards</span></a>
+                <ul class="sub-menu">
+                    <li class="menu-item"><a href="#">Dashboard User</a></li>
+                    <li class="menu-item"><a href="#">Dashboard Projects</a></li>
+                    <li class="menu-item"><a href="#">Dashboard Posts</a></li>
+                    <li class="menu-item"><a href="#">Dashboard Poker Planning Session</a></li>
+                    <li class="menu-item"><a href="#">Dashboard chat </a></li>
+                    <li class="menu-item"><a href="#">Dashboard card </a></li>
+                    <li class="menu-item"><a href="#">Dashboards Sprint</a></li>
+                    <li class="menu-item"><a href="#">Dashboard User Story</a></li>
+                    <li class="menu-item"><a href="#">Dashboard Equipe</a></li>
+
+                </ul>
+                <span class='submenu-opener'><i class='bi bi-chevron-right'></i></span>
+            </li>
+
+            <!-- HR Management -->
+            <li class="menu-item menu-item-has-children"><a routerLink="/front/ut/user/myprofile"> <span
+                        class="nav-icon flex-shrink-0"><i class="bi bi-people fs-16"></i></span>
+                    <span class="nav-text">My Profile</span></a>
+
+                <span class='submenu-opener'><i class='bi bi-chevron-right'></i></span>
+            </li>
+            <li class="menu-item menu-item-has-children"><a routerLink="/front/ut/test"> <span
+                        class="nav-icon flex-shrink-0"><i class="bi bi-people fs-16"></i></span>
+                    <span class="nav-text">Pass a test</span></a>
+
+                <span class='submenu-opener'><i class='bi bi-chevron-right'></i></span>
+            </li>
+
+        </ul>

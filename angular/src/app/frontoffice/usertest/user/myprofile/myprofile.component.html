@@ -1,0 +1,409 @@
+<!-- Main Wrapper-->
+<main class="main-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xxl-9 col-lg-8">
+                <div class="inner-contents">
+                    <div class="page-header d-flex align-items-center justify-content-between mr-bottom-30">
+                        <div class="left-part">
+                            <h2 class="text-dark">Profile</h2>
+                            <p class="text-gray mb-0">{{connecteduser.first_name}}</p>
+                        </div>
+                        <div class="right-part">
+                            <form class="search-form w-auto"
+                                action="https://wpthemebooster.com/demo/themeforest/html/kleon/search.php">
+                                <input type="text" name="search" class=" bg-white form-control" placeholder="Search">
+                                <button type="submit" class="btn"><img
+                                        src="../../../../../assets/assets_FrontOffice/assets/img/svg/search.svg"
+                                        alt=""></button>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Tab Vertical with Icon Box -->
+                    <div class="d-flex align-items-start">
+                        <ul class="nav nav-pills nav-vertical-icon-box" id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#tab-31" data-bs-toggle="tab" role="tab">
+                                    <div class="d-flex flex-column text-center"><span><i class="bi bi-star"></i></span>
+                                        <span>Personal informations</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tab-32" data-bs-toggle="tab" role="tab">
+                                    <div class="d-flex flex-column text-center"><span><i
+                                                class="bi bi-clock-history"></i></span> <span>Edit</span></div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tab-33" data-bs-toggle="tab" role="tab">
+                                    <div class="d-flex flex-column text-center"><span><i class="bi bi-key"></i></span>
+                                        <span>security</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="tab-31" role="tabpanel">
+                                <h5 class="mb-4">my personal informations</h5>
+                                <table class="table table-primary table-bordered">
+                                    <!-- <tr><td>ID:</td><td>{{ user.id }}</td></tr>
+                <tr><td>First Name:</td><td>{{ user.first_name }}</td></tr>
+                <tr><td>Last Name:</td><td>{{ user.last_name }}</td></tr>
+                <tr><td>Email:</td><td>{{ user.email }}</td></tr>
+                <tr><td>Password:</td><td>{{ user.password }}</td></tr>
+                <tr><td>Image:</td><td>{{ user.image }}</td></tr> -->
+                                    <tbody>
+                                        <tr>
+                                            <th scope="col">Birth Date:</th>
+                                            <td>{{ connecteduser.birth_date }}</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="col">Gender:</th>
+                                            <td>{{ connecteduser.gender }}</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="col">Address:</th>
+                                            <td>{{ connecteduser.address }}</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="col">Phone Number:</th>
+                                            <td>{{ connecteduser.phone_number }}</td>
+                                        </tr>
+                                    </tbody>
+                                    <!-- <tbody>
+                                        <tr>
+                                            <th scope="col">Status:</th>
+                                            <td>{{ connecteduser.status }}</td>
+                                        </tr>
+                                    </tbody> -->
+                                    <tbody>
+                                        <tr>
+                                            <th scope="col">Created Date:</th>
+                                            <td>{{ connecteduser.created_date }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p style="color: transparent;background-color: transparent;">Nemo enim ipsam voluptatem
+                                    quia voluptas sit aspernatur odit aut fugit, sed magni
+                                    doloresqui ratione voluptatem sequi nesciunt. Neque porro quisquam qui dolorem ipsum
+                                    quia dolor sit amet, consecteturadipisci velit.</p>
+
+                            </div>
+                            <div class="tab-pane fade" id="tab-32" role="tabpanel">
+                                <h5 class="mb-4">Edit personal informations</h5>
+                                <app-editmyprofile></app-editmyprofile>
+                                <p style="color: transparent;background-color: transparent;">Nemo enim ipsam voluptatem
+                                    quia voluptas sit aspernatur odit aut fugit, sed magni
+                                    doloresqui ratione voluptatem sequi nesciunt. Neque porro quisquam qui dolorem ipsum
+                                    quia dolor sit amet, consecteturadipisci velit.</p>
+                            </div>
+                            <div class="tab-pane fade" id="tab-33" role="tabpanel">
+                                <h5 class="mb-4">Edit password</h5>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span
+                                                class="badge d-flex align-items-center text-dark rounded-0 rounded-start py-2 px-3 border border-light-200 fs-16"><i
+                                                    class="bi bi-lock"></i></span>
+                                            <input type="password" class="form-control" name="post" [(ngModel)]="oldpwd"
+                                                placeholder="Old Password" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span
+                                                class="badge d-flex align-items-center text-dark rounded-0 rounded-start py-2 px-3 border border-light-200 fs-16"><i
+                                                    class="bi bi-lock"></i></span>
+                                            <input type="password" class="form-control" name="password"
+                                                [(ngModel)]="newpwd" placeholder="New Password" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span
+                                                class="badge d-flex align-items-center text-dark rounded-0 rounded-start py-2 px-3 border border-light-200 fs-16"><i
+                                                    class="bi bi-lock"></i></span>
+                                            <input type="password" class="form-control" name="c_password"
+                                                [(ngModel)]="newpwd2" placeholder="Confirm New Password" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf="msg=='Wrong password' ||msg=='New password and confirmation password don\'t match or the password length is less than 6 characters.'"
+                                    class="alert alert-danger">
+                                    {{msg}}
+
+                                </div>
+                                <div *ngIf="msg=='password updated succesfully'" class="alert alert-success">
+                                    {{msg}}
+                                </div>
+
+                                <button class="btn btn-success text-white" (click)="onSubmit()">Update The
+                                    password!</button>
+
+                                <p style="color: transparent;background-color: transparent;">Nemo enim ipsam voluptatem
+                                    quia voluptas sit aspernatur odit aut fugit, sed magni
+                                    doloresqui ratione voluptatem sequi nesciunt. Neque porro quisquam qui dolorem ipsum
+                                    quia dolor sit amet, consecteturadipisci velit.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-xxl-9">
+                            <div class="card border-0 card-graph p-5">
+                                <div
+                                    class="card-header bg-transparent border-0 p-0 d-flex align-items-center justify-content-between gap-3 mb-2">
+                                    <h4 class="mb-0">Account Activity</h4>
+
+                                </div>
+                                <table class="table table-primary table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Type</th>
+                                            <th scope="col">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="let a of activities">
+                                        <tr *ngIf="a.email==connecteduser.email">
+                                            <th scope="row">{{a.date}}</th>
+                                            <td>{{a.activity}}</td>
+                                            <td *ngIf="a.activity=='login attempt success'">User successfully logged
+                                                into the system</td>
+                                            <td *ngIf="a.activity=='login attempt'">User fail to log into the system
+                                            </td>
+                                            <td *ngIf="a.activity=='account creation'">An account has been created</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-transparent border-0 p-5 pb-0">
+                            <h4 class="mb-0">Latest Invoice Payment</h4>
+                        </div>
+                        <div class="card-body pt-2">
+                            <div *ngFor="let result of quizhistory">
+                                <div class="table-responsive">
+                                    <table id="table-6" class="display text-center">
+                                        <thead>
+                                            <tr>
+                                                <th>Quiz</th>
+                                                <th>Result</th>
+                                                <th>Date</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex gap-2 flex-wrap">
+                                                        <div class="profilepicture flex-shrink-0 d-none d-xl-block">
+                                                            <img [src]="result.test.image" alt="Quiz Image">
+                                                        </div>
+                                                        <div>
+                                                            <a href="invoice.html" class="fs-14 fw-semibold">{{
+                                                                result.test.title }}</a>
+                                                            <h6 class="fw-semibold mb-0">{{ result.test.description }}
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex gap-2">
+                                                        <i class="bi bi-bookmark-check-fill text-gray"></i>
+                                                        <div>{{ result.score }}</div>
+                                                        <span class="p-2 rounded-1 badge-soft-danger">
+                                                            <i class="indicator danger"></i> Unmatched
+                                                        </span>
+                                                        <span class="p-2 rounded-1 badge-soft-warning">
+                                                            <i class="indicator warning"></i> Normal Match
+                                                        </span>
+                                                        <h5 class="fs-20 mb-0">
+                                                            <span class="p-2 rounded-1 badge-soft-success">
+                                                                <i class="indicator success"></i> High Match
+                                                            </span>
+                                                        </h5>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="fs-14 text-gray mb-0">{{ result.date }}</p>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a href="#" data-bs-toggle="dropdown" class="fs-24 text-gray">
+                                                            <i class="bi bi-three-dots-vertical"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu p-0">
+                                                            <a class="dropdown-item" href="invoice.html"><i
+                                                                    class="bi bi-eye"></i></a>
+                                                            <a class="dropdown-item" href="invoice-new.html"><i
+                                                                    class="bi bi-download"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                    </iframe>
+
+                    <audio controls autoplay>
+                        <source src="assets/nature.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+
+                </div>
+            </div>
+
+            <div class="col-xxl-3 col-lg-4 p-0">
+                <!-- Right Side Panel -->
+                <div class="kleon-right-side-panel overflow-auto">
+                    <div class="card border-0 rounded-0">
+                        <div class="card-body p-0">
+                            <div class="d-flex justify-content-between gap-4 p-0 mb-5">
+                                <div>
+                                    <img id="sweet-image" src="{{connecteduser.image}}" alt="img" width="180"
+                                        height="180" class="rounded-1">
+
+                                </div>
+                                <div class="ms-auto">
+                                    <a href="#" data-bs-toggle="dropdown" class="fs-24 text-gray">
+                                        <i class="bi bi-three-dots-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu p-0">
+                                        <a class="dropdown-item" href="#">View</a>
+                                        <a class="dropdown-item" href="#">Edit</a>
+                                        <input type="file" [(ngModel)]="imgtest" (change)="handleFileInput($event)">
+
+                                        <button (click)="updatePhoto()"><mat-icon>add_a_photo</mat-icon></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="fs-36">{{connecteduser.first_name}} {{connecteduser.last_name}}.</h3>
+                                <p class="fw-semibold text-gray mb-0">{{connecteduser.role}} <span
+                                        class="fw-bold text-primary"> at codemasters</span></p>
+                            </div>
+
+                            <ul class="list-unstyled mt-3 mr-bottom-25">
+                                <li class="d-flex align-items-center justify-content-between gap-3 mb-3">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="candidate--contact-icon bg-soft-primary text-center">
+                                            <i class="bi bi-telephone-fill"></i>
+                                        </div>
+                                        <div class="fs-14 fw-semibold"><a href="tel:+216 {{connecteduser.phone_number}}"
+                                                class="text-dark">+216 {{connecteduser.phone_number}}</a></div>
+                                    </div>
+                                </li>
+
+                                <li class="d-flex align-items-center justify-content-between gap-3 mb-3">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="candidate--contact-icon bg-soft-primary text-center">
+                                            <i class="bi bi-envelope-fill"></i>
+                                        </div>
+                                        <div class="fs-14 fw-semibold"><a href="mailto:{{connecteduser.email}}"
+                                                class="text-dark">{{connecteduser.email}}</a></div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="d-flex align-items-center justify-content-xl-between gap-3">
+                                <div class="bg-light-200 text-center rounded-1 p-3" style="width: 167px">
+                                    <p class="fs-14 mb-1">Project Complete</p>
+                                    <h4 class="mb-0"><i class="bi bi-file-text-fill text-gray"></i> <span
+                                            class="text-primary">100</span></h4>
+                                </div>
+
+                                <div class="bg-light-200 text-center rounded-1 p-3" style="width: 167px">
+                                    <p class="fs-14 mb-1">Project Ongoing</p>
+                                    <h4 class="mb-0"><i class="bi bi-lightbulb-fill text-gray"></i> <span
+                                            class="text-primary">50</span></h4>
+                                </div>
+                            </div>
+
+                            <div class="mr-top-40">
+                                <div class="border-0 d-flex align-items-center justify-content-between gap-4 mb-4">
+                                    <h4 class="mb-0">Project Progress</h4>
+
+                                    <div class="ms-auto">
+                                        <a href="#" data-bs-toggle="dropdown" class="fs-24 text-gray">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </a>
+                                        <div class="dropdown-menu p-0">
+                                            <a class="dropdown-item" href="#">View</a>
+                                            <a class="dropdown-item" href="#">Edit</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card border-0 p-0 bg-primary text-white">
+                                    <div class="card-body">
+                                        <div class="storage">
+                                            <i class="bi bi-file-text-fill fs-24 text-white"></i>
+                                            <h5 class="text-white">Project Kleon</h5>
+                                            <div class="progress rounded-1 bg-dark" role="progressbar" aria-valuemin="0"
+                                                aria-valuemax="100" style="height: 11px;">
+                                                <div class="progress-bar bg-white rounded-1" style="width: 62%"></div>
+                                            </div>
+                                            <h5 class="d-flex justify-content-between fw-semibold text-white mt-2 mb-0">
+                                                <span>Progress</span>
+                                                <span>62%</span>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card border-0 p-0 bg-secondary text-white">
+                                    <div class="card-body">
+                                        <div class="storage">
+                                            <i class="bi bi-file-text-fill fs-24 text-white"></i>
+                                            <h5 class="text-white">Project Portu</h5>
+                                            <div class="progress rounded-1 bg-dark" role="progressbar" aria-valuemin="0"
+                                                aria-valuemax="100" style="height: 11px;">
+                                                <div class="progress-bar bg-white rounded-1" style="width: 25%"></div>
+                                            </div>
+                                            <h5 class="d-flex justify-content-between fw-semibold text-white mt-2 mb-0">
+                                                <span>Progress</span>
+                                                <span>25%</span>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

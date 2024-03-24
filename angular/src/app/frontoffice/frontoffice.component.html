@@ -1,0 +1,16 @@
+<app-frontoffice-header></app-frontoffice-header>
+<app-frontoffice-sidebar></app-frontoffice-sidebar>
+<router-outlet></router-outlet>
+<app-frontoffice-footer></app-frontoffice-footer>
+<!-- Theme Customizer Panel -->
+<button class="aside_open btn btn-primary position-fixed z-index-9 rounded-circle p-0 m-0 d-flex align-items-center justify-content-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#chatSection">
+    <img src="https://static.vecteezy.com/system/resources/previews/022/227/364/non_2x/openai-chatgpt-logo-icon-free-png.png" alt="ChatGPT Logo">
+</button>
+
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="chatSection">
+    <div class="offcanvas-header bg-light-200">
+        <h5 class="offcanvas-title">Chat GPG</h5>
+        <button type="button" class="aside_close btn btn-danger z-index-9 rounded-circle p-0 m-0 d-flex align-items-center justify-content-center" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <!-- Your chat interface content goes here -->
+</div>

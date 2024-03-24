@@ -1,0 +1,98 @@
+<h1 class="mt-4">Manage My account</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Users/update</li>
+</ol>
+
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+    <div class="tab-content" id="main_form">
+        <!-- First Wizard -->
+        <input type="text" formControlName="id" value="{{connecteduser.id}}" style="display: none;">
+        <div class="tab-pane fade show active" role="tabpanel" id="step1">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span
+                                class="badge d-flex align-items-center text-dark rounded-0 rounded-start py-2 px-3 border border-light-200 fs-16"><i
+                                    class="bi bi-person"></i></span>
+                            <input type="text" class="form-control" value="{{connecteduser.first_name}}"
+                                placeholder="First name" formControlName="first_name" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span
+                                class="badge d-flex align-items-center text-dark rounded-0 rounded-start py-2 px-3 border border-light-200 fs-16"><i
+                                    class="bi bi-person"></i></span>
+                            <input type="email" class="form-control" value="{{connecteduser.last_name}}"
+                                placeholder="Last name" formControlName="last_name" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span
+                                class="badge d-flex align-items-center text-dark rounded-0 rounded-start py-2 px-3 border border-light-200 fs-16"><i
+                                    class="bi bi-telephone"></i></span>
+                            <input type="text" class="form-control" value="{{connecteduser.phone_number}}"
+                                formControlName="phone_number" placeholder="Phone Number">
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span
+                                class="badge d-flex align-items-center text-dark rounded-0 rounded-start py-2 px-3 border border-light-200 fs-16"><i
+                                    class="bi bi-house"></i></span>
+                            <input type="text" class="form-control" formControlName="address" placeholder="Address"
+                                value="{{connecteduser.address}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span
+                                class="badge d-flex align-items-center text-dark rounded-0 rounded-start py-2 px-3 border border-light-200 fs-16"><i
+                                    class="bi bi-pin-map"></i></span>
+                            <input type="date" class="form-control" placeholder="Birth date"
+                                formControlName="birth_date" value="{{connecteduser.birth_date}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span
+                                class="badge d-flex align-items-center text-dark rounded-0 rounded-start py-2 px-3 border border-light-200 fs-16"><i
+                                    *ngIf="connecteduser.gender!='Femme' && connecteduser.gender!='Homme'"
+                                    class="bi bi-rainbow">
+                                </i><i *ngIf="connecteduser.gender=='Femme'||connecteduser.gender=='Homme'"
+                                    class="bi bi-flag"></i></span>
+                            <select class="form-control " formControlName="gender">
+                                <option value="" *ngFor="let g of genderList" [ngValue]="g">{{g}}</option>
+                            </select>
+                            <div *ngIf="connecteduser.gender!='Femme' && connecteduser.gender!='Homme'"> <img width="65"
+                                    src="../../../../../assets/assets_FrontOffice/assets/img/meme.png" alt=""> </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-success text-white" type="submit" (click)="onSubmit()">Update My account!</button>
+
+    </div>
+</form>

@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-xl-7 col-lg-7 col-md-6">
+        <div class="d-none d-md-flex align-items-center justify-content-center" style="height: calc(100vh - 100px);">
+            <img src="../../../assets/img/Codemasters_Logo.png" alt="img" class="img-fluid">
+        </div>
+    </div>
+
+    <div class="col-xl-5 col-lg-5 col-md-6">
+        <div class="d-flex align-items-center justify-content-center vh-100 bg-white">
+            <div class="card rounded-0 border-0 p-5 m-0 w-100">
+
+                <div class="card-header border-0 p-0">
+                    <a routerLink="/welcome" class="w-100 d-inline-block mb-5">
+                        <img src="../../../assets/img/Codemasters_Logo.png" width="30%" alt="img">
+                    </a>
+                    <h2>Welcome back!</h2>
+                    
+                    <p class="text-dark mt-4 mb-5">Please login using your account.</p>
+                </div>
+
+                <div class="card-body p-0">
+                    <form class="form-horizontal" [formGroup]="addressForm"  (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <input type="text" class="form-control" formControlName="email" placeholder="Email" required>
+                        </div>
+        
+                        <div class="form-group">
+                            <input type="password" class="form-control" formControlName="password" placeholder="Type Password" required>
+                        </div>
+                        <div *ngIf="response=='Email or password are wrong. Please try again.' || response=='Your account is blocked. Please contact an admin.'|| response=='Your account needs to be verified.'" class="alert alert-danger">
+                            {{response}}
+                            
+                          </div>
+                          <div *ngIf="otherresponse=='Welcome Admin'||otherresponse=='Welcome User'" class="alert alert-success">
+                            {{otherresponse}}
+                          </div>
+                       
+                        <button type="submit" class="btn btn-primary w-100 text-uppercase text-white rounded-2 lh-34 ff-heading fw-bold shadow">Login</button>
+                        <div class="btn-group gap-2">
+                            <a routerLink="/signin2"
+                                class="btn btn-outline-primary d-flex align-items-center justify-content-center gap-1 px-2 rounded-1">
+                                <mat-icon>credit_card</mat-icon>
+                                Or Sign in with your card
+                            </a>
+                            
+                        </div>
+                        <p class="d-flex align-items-center justify-content-between mt-4 mb-4">Forgot your password? <a routerLink="/reset" class="text-primary fw-bold text-decoration-underline">Reset Here</a></p>
+                        
+                        <a routerLink="/signup" class="btn btn-secondary w-100 text-uppercase text-white rounded-2 lh-34 ff-heading fw-bold">Create an Account</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

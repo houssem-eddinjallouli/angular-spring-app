@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-xl-7 col-lg-7 col-md-6">
+        <div class="d-none d-md-flex align-items-center justify-content-center" style="height: calc(100vh - 100px);">
+            <img src="../../../assets/img/Codemasters_Logo.png" alt="img" class="img-fluid">
+        </div>
+    </div>
+
+    <div class="col-xl-5 col-lg-5 col-md-6">
+        <div class="d-flex align-items-center justify-content-center vh-100 bg-white">
+            <div class="card rounded-0 border-0 p-5 m-0 w-100">
+
+                <div class="card-header border-0 p-0">
+                    <a routerLink="/welcome" class="w-100 d-inline-block mb-5">
+                        <img src="../../../assets/img/Codemasters_Logo.png" width="30%" alt="img">
+                    </a>
+                    <h2>Two Step Varification</h2>
+                    <p class="text-dark mt-4 mb-5">We sent a varification code through your email address. Please enter the code from your email.</p>
+                </div>
+
+                <div class="card-body p-0">
+                    <form class="form-horizontal" >
+                        <div class="form-group">
+                            <label class="form-label text-gray">Enter your 6 digits security code</label>
+                            <div class="d-flex align-items-center justify-content-center gap-2 flex-nowrap">
+                                <input type="text" class="form-control"  [(ngModel)]="v1" placeholder="" required>
+                                <input type="text" class="form-control"  [(ngModel)]="v2" placeholder="" required>
+                                <input type="text" class="form-control"  [(ngModel)]="v3" placeholder="" required>
+                                <input type="text" class="form-control"  [(ngModel)]="v4" placeholder="" required>
+                                <input type="text" class="form-control"  [(ngModel)]="v5" placeholder="" required>
+                                <input type="text" class="form-control"  [(ngModel)]="v6" placeholder="" required>
+                            </div>
+                        </div>
+        
+                        <button (click)="verifieremail()"  type="submit" class="btn btn-primary w-100 text-uppercase text-white rounded-2 lh-34 ff-heading fw-bold shadow">Verify</button>
+                        <p class="mt-4 mb-0"><a routerLink="/verif" class="text-primary fw-bold text-decoration-underline">Didn't recieve the code?</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

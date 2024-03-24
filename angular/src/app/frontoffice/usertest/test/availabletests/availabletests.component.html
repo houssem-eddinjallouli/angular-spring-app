@@ -1,0 +1,39 @@
+<main class="main-wrapper">
+    <div class="container-fluid">
+        <h2>Available tests !</h2>
+
+        <div class="row">
+            <div class="col-xxl-4 col-lg-6" *ngFor="let t of getActiveTests().reverse()">
+
+                <div class="card border-0">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between gap-4">
+                            <div class="avatar-img w-auto rounded-2 overflow-hidden flex-shrink-0">
+                                <img [src]="t.image" alt="img" >
+                            </div>
+                            <div class="dropdown">
+                                <a href="#" data-bs-toggle="dropdown" class="fs-24">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu p-0">
+                                    <a class="dropdown-item" href="candidate.html">View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content mt-4">
+                            <h5 class="mb-1">{{ t.title }} <br>- <span class="text-primary">{{ t.description }}</span>
+                            </h5>
+                            <small class="d-inline-block text-gray fs-14 fw-normal">number of questions: {{ t.questions.length }}</small>
+                        </div>
+                        <div
+                            class="d-flex align-items-center justify-content-between gap-3 flex-wrap btn-width-equal mt-4">
+                            <a [routerLink]="['../passatest', t.id]"
+                                class="btn btn-primary ff-heading fs-14 fw-bold">Start the Test</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
